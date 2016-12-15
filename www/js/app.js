@@ -22,7 +22,7 @@ angular.module('starter', ['ionic'])
         }
 
         try {
-            db = $cordovaSQLite.openDB({name:"Onetapp9.db",location:'default'});
+            db = $cordovaSQLite.openDB({name:"test.db",location:'default'});
         } catch (error) {
             alert(error);
         }
