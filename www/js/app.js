@@ -50,25 +50,31 @@ angular.module('starter', ['ionic'])
         $cordovaSQLite.execute(db, query, [sender, sent_at]).then(function(res)
         {
             console.log("insertId: " + res.insertId);
+            $scope.sender(sender, question, answer, sent_at);
 
         }, function (err) 
         {
             console.error(err);
         });
+    }
 
-        // $http.get("http://api-test-fabianprado.c9users.io,", 
-        //     { params: { "key1": "value1", "key2": "value2" } })
-        // .success(function(data) 
-        // {
-        //     alert("SUCCESS");
-        //     console.log(data[0]['floor_no']);
-
-        //     $scope.firstname = data[0]['section'];
-        //     $scope.lastname = data[0]['floor_no'];
-        // })
-        // .error(function(data) 
-        // {
-        //     alert("ERROR");
-        // });
+    $scope.sendMsg = function(sender, question, answer, sent_at) 
+    {
+        $http.get("http://api-test-fabianprado.c9users.io,", { 
+            params: { 
+                "sender": sender,
+                "question": question, 
+                "answer": answer, 
+                "sent_at": sent_at
+            } 
+        })
+        .success(function(data) 
+        {
+            alert("SUCCESS");
+        })
+        .error(function(data) 
+        {
+            alert("ERROR");
+        });
     }
 })
