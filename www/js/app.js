@@ -58,7 +58,7 @@ angular.module('starter', ['ionic'])
         });
     }
 
-    $scope.sendMsg = function(sender, question, answer, sent_at) 
+    $scope.sender = function(sender, question, answer, sent_at) 
     {
         $http.get("http://api-test-fabianprado.c9users.io,", { 
             params: { 
